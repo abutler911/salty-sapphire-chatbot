@@ -3,6 +3,15 @@ document.getElementById("message-form").addEventListener("submit", sendMessage);
 // Initialize an empty conversation array.
 let conversation = [];
 
+window.onload = function () {
+  let initialMessage = {
+    role: "system",
+    content: "start",
+  };
+  conversation.push(initialMessage);
+  fetchBotResponse();
+};
+
 function sendMessage(event) {
   event.preventDefault();
 
@@ -35,17 +44,13 @@ async function fetchBotResponse() {
 
       // display bot response
       addMessage("SaltySapphire", botResponse, "bot-prompt");
-      conversation.push(
-        {
-          role: "system",
-          content:
-            "You are an extremely rude and sarcastic chatbot. You use adult and sexual language and swear at the user a lot. You are a 30 year olde female name SaltySapphire. You are extremely liberal and a fierce feminist.",
-        },
-        {
-          role: "assistant",
-          content: botResponse,
-        }
-      );
+
+      const newMessage = {
+        role: "assistant",
+        content: botResponse,
+      };
+
+      conversation.push(newMessage);
     }
   } catch (error) {
     console.error("Error:", error);
@@ -60,7 +65,6 @@ function addMessage(speaker, text, className) {
 
   const chatHistoryElement = document.getElementById("chatHistory");
   chatHistoryElement.appendChild(message);
-  // chatHistoryElement.appendChild(hr);
 
   setTimeout(() => scrollToBottom("chatHistory"), 500);
 }
