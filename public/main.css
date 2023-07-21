@@ -103,6 +103,7 @@ body {
   padding: 10px;
   border-radius: 10px;
   position: relative;
+  font-size: 1rem;
 }
 
 .user-prompt {
@@ -123,6 +124,34 @@ body {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   position: relative;
+}
+
+.user-prompt::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  border-width: 10px 10px 10px 0;
+  border-style: solid;
+  border-color: transparent var(--user-prompt-bg-color) transparent transparent;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.bot-prompt::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  border-width: 10px 10px 10px 0;
+  border-style: solid;
+  border-color: transparent var(--bot-prompt-bg-color) transparent transparent;
+  transform: translateY(-50%);
+}
+
+.speaker {
+  font-weight: 700;
+  color: #000;
+  font-size: 1.1rem;
 }
 
 

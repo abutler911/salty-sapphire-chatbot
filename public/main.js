@@ -58,9 +58,18 @@ async function fetchBotResponse() {
 }
 
 function addMessage(speaker, text, className) {
+  // create a span element and add the speaker name to it
+  const speakerElement = document.createElement("span");
+  speakerElement.textContent = `${speaker}: `;
+  speakerElement.className = "speaker";
+
   const message = document.createElement("p");
-  message.textContent = `${speaker}: ${text}`;
+
+  // append the speaker element and the text to the message
+  message.appendChild(speakerElement);
+  message.append(text); // append just the text, not textContent
   message.classList.add(className);
+
   const hr = document.createElement("hr");
 
   const chatHistoryElement = document.getElementById("chatHistory");

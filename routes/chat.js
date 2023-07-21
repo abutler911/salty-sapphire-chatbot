@@ -25,7 +25,6 @@ module.exports = (openai) => {
         messages: messages,
         temperature: 0.7,
         max_tokens: 1000,
-        n: 3,
       });
 
       let botResponse = chat_completion.data.choices[0].message.content;
