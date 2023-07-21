@@ -60,7 +60,7 @@ function addMessage(speaker, text, className) {
 
   const chatHistoryElement = document.getElementById("chatHistory");
   chatHistoryElement.appendChild(message);
-  chatHistoryElement.appendChild(hr);
+  // chatHistoryElement.appendChild(hr);
 
   setTimeout(() => scrollToBottom("chatHistory"), 500);
 }
