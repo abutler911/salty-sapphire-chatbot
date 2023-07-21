@@ -31,7 +31,7 @@ The project is created with:
 
 To run this project, you'll need Node.js and npm installed on your system.
 
-1. Clone the repository: `git clone https://github.com/abutler911/openai-chat-bot.git`
+1. Clone the repository: `git clone https://github.com/abutler911/salty-sapphire-chat-bot.git`
 2. Move into the project directory: `cd openai-chat-bot`
 3. Install the dependencies: `npm install`
 4. Start the server: `npm start`
@@ -50,7 +50,7 @@ The project is in ongoing development. Future updates are planned for more compl
 
 ## Contribution
 
-We welcome contributions from the community to help improve SassySage. If you've got an idea for a new feature or an improvement, feel free to open an issue to discuss it or directly submit a pull request with your changes.
+We welcome contributions from the community to help improve SaltySapphire. If you've got an idea for a new feature or an improvement, feel free to open an issue to discuss it or directly submit a pull request with your changes.
 
 ## Contact
 
