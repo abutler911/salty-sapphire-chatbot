@@ -11,7 +11,6 @@ module.exports = (openai) => {
 
   router.post("/", async (req, res) => {
     const conversation = req.body.conversation;
-    console.log(conversation);
     const messages = [
       {
         role: "system",
