@@ -24,7 +24,7 @@ module.exports = (openai) => {
       const chat_completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: messages,
-        temperature: 0.1,
+        temperature: 0.7,
         max_tokens: 1000,
         n: 3,
       });
