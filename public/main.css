@@ -73,7 +73,7 @@ body {
   max-height: 60vh;
   height: 60vh;
   overflow-y: auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 13px;
 }
 
@@ -132,7 +132,7 @@ body {
   padding: 10px;
   border-radius: 10px;
   position: relative;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .user-prompt {
@@ -189,7 +189,7 @@ body {
 /* Form Input */
 #message-form {
   gap: 0 !important;
-  /* padding-bottom: 50px; */
+  padding-bottom: 50px;
 }
 
 #userInput {

@@ -1,6 +1,4 @@
 document.getElementById("message-form").addEventListener("submit", sendMessage);
-
-// Initialize an empty conversation array.
 let conversation = [];
 
 window.onload = function () {
@@ -17,7 +15,6 @@ function sendMessage(event) {
 
   const userInput = document.getElementById("userInput").value;
 
-  // display user message
   addMessage("You", userInput, "user-prompt");
   conversation.push({
     role: "user",
@@ -58,16 +55,14 @@ async function fetchBotResponse() {
 }
 
 function addMessage(speaker, text, className) {
-  // create a span element and add the speaker name to it
   const speakerElement = document.createElement("span");
   speakerElement.textContent = `${speaker}: `;
   speakerElement.className = "speaker";
 
   const message = document.createElement("p");
 
-  // append the speaker element and the text to the message
   message.appendChild(speakerElement);
-  message.append(text); // append just the text, not textContent
+  message.append(text);
   message.classList.add(className);
 
   const hr = document.createElement("hr");
