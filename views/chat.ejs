@@ -39,7 +39,7 @@
   </head>
   <body class="d-flex flex-column vh-100">
     <main
-      class="container flex-grow-1 d-flex flex-column justify-content-between"
+      class="container flex-grow-1 d-flex flex-column justify-content-between overflow-auto"
     >
       <div class="row justify-content-center">
         <div class="col-lg-6">
@@ -59,39 +59,39 @@
 
           <hr class="main-divider" />
 
-          <div
-            id="chatHistory"
-            class="mb-3"
-            role="log"
-            aria-live="polite"
-          ></div>
+          <div class="chatContainer">
+            <div id="chatHistory" class="mb-3" role="log" aria-live="polite">
+              <!-- Chat messages will go here -->
+            </div>
+
+            <form
+              id="message-form"
+              action="/"
+              method="POST"
+              class="mb-3 d-flex"
+              autocomplete="off"
+              aria-label="Chat form"
+            >
+              <input
+                id="userInput"
+                type="text"
+                name="userInput"
+                class="form-control"
+                placeholder="Enter message..."
+              />
+              <button
+                type="submit"
+                class="btn d-flex justify-content-center align-items-center"
+              >
+                <i class="bi bi-send"></i>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-6">
           <hr />
-          <form
-            id="message-form"
-            action="/"
-            method="POST"
-            class="mb-3 d-flex"
-            autocomplete="off"
-            aria-label="Chat form"
-          >
-            <input
-              id="userInput"
-              type="text"
-              name="userInput"
-              class="form-control"
-              placeholder="Enter message..."
-            />
-            <button
-              type="submit"
-              class="btn d-flex justify-content-center align-items-center"
-            >
-              <i class="bi bi-send"></i>
-            </button>
-          </form>
         </div>
       </div>
     </main>
