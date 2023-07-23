@@ -186,9 +186,28 @@ body {
 }
 
 #typing-indicator {
-  color: white;
+  color: var(--bot-prompt-bg-color);
   font-size: 0.8rem;
   padding: 5px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.pulse {
+  animation: pulse 0.5s infinite;
+  -webkit-animation: pulse 0.5s infinite;
 }
 
 /* Form Input */
