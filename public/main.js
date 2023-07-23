@@ -37,9 +37,10 @@ async function fetchBotResponse() {
       body: JSON.stringify({ conversation }),
     });
 
+    document.getElementById("typing-indicator").style.display = "none";
+
     if (response.ok) {
       const { botResponse } = await response.json();
-      document.getElementById("typing-indicator").style.display = "none";
 
       // display bot response
       addMessage("SaltySapphire", botResponse, "bot-prompt");
@@ -50,6 +51,9 @@ async function fetchBotResponse() {
       };
 
       conversation.push(newMessage);
+    } else {
+      const { error } = await response.json();
+      console.error("Server Error:", error);
     }
   } catch (error) {
     console.error("Error:", error);
@@ -73,7 +77,7 @@ function addMessage(speaker, text, className) {
   chatHistoryElement.appendChild(message);
   4;
 
-  setTimeout(() => scrollToBottom("chatHistory"), 500);
+  setTimeout(() => scrollToBottom("chatHistory"), 0);
 }
 
 function scrollToBottom(id) {

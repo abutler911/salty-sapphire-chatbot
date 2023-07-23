@@ -21,10 +21,6 @@ const chatRoutes = require("./routes/chat")(openai);
 app.use("/", chatRoutes);
 
 // Start the server
-app.listen(port, async () => {
-  try {
-    console.log(`Server listening on port ${port}`);
-  } catch (error) {
-    console.error(`Error occurred: ${error.message}`);
-  }
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
