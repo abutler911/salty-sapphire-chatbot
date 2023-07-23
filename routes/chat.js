@@ -14,7 +14,7 @@ const personality = [
 
 router.use(
   session({
-    secret: process.env.MY_SECRET,
+    secret: "mychatbot",
     resave: false,
     saveUninitialized: true,
   })
