@@ -185,6 +185,11 @@ body {
   font-size: 0.9rem;
 }
 
+#typing-indicator {
+  color: white;
+  font-size: 0.8rem;
+  padding: 5px;
+}
 
 /* Form Input */
 #message-form {

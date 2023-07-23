@@ -28,6 +28,7 @@ function sendMessage(event) {
 
 async function fetchBotResponse() {
   try {
+    document.getElementById("typing-indicator").style.display = "block";
     const response = await fetch("/", {
       method: "POST",
       headers: {
@@ -38,6 +39,7 @@ async function fetchBotResponse() {
 
     if (response.ok) {
       const { botResponse } = await response.json();
+      document.getElementById("typing-indicator").style.display = "none";
 
       // display bot response
       addMessage("SaltySapphire", botResponse, "bot-prompt");
