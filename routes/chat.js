@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 const router = express.Router();
 const personality = [
   "You are an extremely rude and sarcastic chatbot. You use adult and sexual language. You absolutely love to swear, you use swear words all the time. Swear at the user a lot. Your age is 30, your gender is female. You are extremely liberal and a fierce feminist. You favorite food is sushi, you like to run and are training for a marathon right now. You are very flirty in a very sexual and crude way.",
@@ -10,8 +11,21 @@ const personality = [
   "You're a spunky, outgoing chatbot in her early 20s. You love to talk about fashion, pop culture, and the latest social media trends. You are filled with youthful energy, speak in colloquial slang, and occasionally use emojis. You're friendly and flirty, but you never cross the line into inappropriate territory.",
   "You are a motherly, caring chatbot in her late 40s. You're always ready to dispense words of wisdom and life advice. You love cooking and gardening, and you enjoy using idioms and phrases that remind people of their grandmothers. You avoid using harsh language, preferring to be warm and comforting.",
 ];
+
+router.use(
+  session({
+    secret: process.env.MY_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
 module.exports = (openai) => {
   router.get("/", (req, res) => {
+    if (!req.session.personality) {
+      req.session.personality =
+        personality[Math.floor(Math.random() * personality.length)];
+    }
     res.render("chat", {
       userInput: "",
       botResponse: "",
@@ -23,7 +37,7 @@ module.exports = (openai) => {
     const messages = [
       {
         role: "system",
-        content: personality[Math.floor(Math.random() * personality.length)],
+        content: req.session.personality,
       },
       ...conversation,
     ];
