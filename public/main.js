@@ -43,7 +43,7 @@ async function fetchBotResponse() {
       const { botResponse } = await response.json();
 
       // display bot response
-      addMessage("SaltySapphire", botResponse, "bot-prompt");
+      addMessage("PopBot", botResponse, "bot-prompt");
 
       const newMessage = {
         role: "assistant",
