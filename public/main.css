@@ -86,7 +86,7 @@ body {
 #author {
   text-align: center;
   color: var(--title-color);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .title {
@@ -96,12 +96,12 @@ body {
 }
 
 #author {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   margin: 5px 0;
 }
 
 #copyright {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   margin: 5px 0;
   color: #fff;
   text-align: center;
@@ -114,7 +114,7 @@ body {
   margin: 20px 0;
   color: #000000;
   padding: 5px;
-  background-color: var(--blue-color);
+  background-color: var(--btn-bg-color);
 }
 
 .main-divider {
@@ -265,4 +265,5 @@ form input {
 
 .btn:hover {
   background-color: var(--btn-hover-bg-color);
+  color: var(--title-color);
 }
