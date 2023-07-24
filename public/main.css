@@ -2,14 +2,14 @@
 :root {
   --main-font: "Poppins", sans-serif;
   --main-color: #2b2b2b;
-  --body-bg-color: #464646;
+  --body-bg-color: #000;
   --title-color: #ffffff;
   --input-color: #000000;
-  --user-prompt-bg-color: rgba(69, 129, 188, 0.8);
-  --bot-prompt-bg-color: rgba(200, 126, 23, 0.8);
+  --user-prompt-bg-color: #068da9;
+  --bot-prompt-bg-color: #e55807;
   --btn-color: #000000;
-  --btn-bg-color: #4581BC;
-  --btn-hover-bg-color: #01609D;
+  --btn-bg-color: #4581bc;
+  --btn-hover-bg-color: #01609d;
   --blue-color: #73b7d9;
 }
 
@@ -18,12 +18,12 @@
 } */
 
 /* Base Styles */
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 body,
@@ -37,7 +37,6 @@ body,
   border-radius: 5px;
   padding: 5px;
 }
-
 
 body {
   margin: 0;
@@ -82,7 +81,6 @@ body {
   flex-shrink: 0;
 }
 
-
 /* Title, Author, and Description */
 .title,
 #author {
@@ -108,8 +106,6 @@ body {
   color: #fff;
   text-align: center;
   font-weight: 600;
-
-
 }
 
 .description {
@@ -124,7 +120,6 @@ body {
 .main-divider {
   border: 1px solid var(--blue-color);
   width: 100%;
-
 }
 
 .logo {
@@ -138,9 +133,9 @@ body {
 
 .user-prompt,
 .bot-prompt {
-  width: 80%;
+  width: 90%;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 7px;
   position: relative;
   font-size: 0.8rem;
 }
@@ -155,7 +150,7 @@ body {
   position: relative;
   padding-right: 5px;
   font-weight: 600;
-  color: var(--title-color);
+  color: var(--btn-color);
 }
 
 .bot-prompt {
@@ -168,7 +163,7 @@ body {
   position: relative;
   padding-left: 5px;
   font-weight: 600;
-  color: var(--title-color);
+  color: var(--btn-color);
 }
 
 .user-prompt::after {
@@ -195,7 +190,7 @@ body {
 
 .speaker {
   font-weight: 700;
-  color: #000;
+  color: #fff;
   font-size: 0.9rem;
 }
 
@@ -226,8 +221,8 @@ body {
 
 /* Form Input */
 #message-form {
-  gap: 0 !important;
-  padding-bottom: 50px;
+  /* gap: 0 !important; */
+  /* padding-bottom: 50px; */
 }
 
 #userInput {
@@ -240,7 +235,6 @@ body {
   border-top-left-radius: 5px;
   font-size: 1.3rem;
   font-weight: 600;
-
 }
 
 form {
@@ -272,7 +266,6 @@ form input {
   margin-left: 0 !important;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-
 }
 
 .btn:hover {
