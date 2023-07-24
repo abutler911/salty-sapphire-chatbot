@@ -220,11 +220,6 @@ body {
 }
 
 /* Form Input */
-#message-form {
-  /* gap: 0 !important; */
-  /* padding-bottom: 50px; */
-}
-
 #userInput {
   flex-grow: 1;
   margin: 0 !important;
