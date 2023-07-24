@@ -1,4 +1,4 @@
-# SaltySapphire - AI Chatbot
+# PopBot - AI Chatbot
 
 SaltySapphire, an AI Chatbot, is a conversational bot, powered by GPT-4 developed by OpenAI. It can engage in human-like text conversation, accept natural language inputs and provide text-based responses.
 
@@ -14,7 +14,7 @@ SaltySapphire, an AI Chatbot, is a conversational bot, powered by GPT-4 develope
 
 ## General info
 
-This project is a simple demonstration of OpenAI's language model GPT-4 capabilities in a chat format. The bot can answer a variety of questions, from general knowledge inquiries to complex problems. It's personality is currently programmed to be very rude and sarcastic and use adult language so PLEASE BE AWARE OF THAT IF YOU ARE OFFENDED BY ADULT LANGUAGE.
+This project is a simple demonstration of OpenAI's language model GPT-4 capabilities in a chat format. The bot can answer a variety of questions, from general knowledge inquiries to complex problems. It specializes in social media and pop culture.
 
 ## Technologies
 
@@ -22,7 +22,7 @@ The project is created with:
 
 - Node.js
 - Express.js
-- OpenAI's GPT-4 language model
+- OpenAI's GPT-3.5 Turbo language model
 - HTML
 - CSS
 - JavaScript
@@ -32,7 +32,7 @@ The project is created with:
 To run this project, you'll need Node.js and npm installed on your system.
 
 1. Clone the repository: `git clone https://github.com/abutler911/salty-sapphire-chat-bot.git`
-2. Move into the project directory: `cd openai-chat-bot`
+2. Move into the project directory: `cd salty-sapphire-chat-bot`
 3. Install the dependencies: `npm install`
 4. Start the server: `npm start`
 5. Open your browser and navigate to `http://localhost:3000` to access the application.
@@ -50,7 +50,7 @@ The project is in ongoing development. Future updates are planned for more compl
 
 ## Contribution
 
-We welcome contributions from the community to help improve SaltySapphire. If you've got an idea for a new feature or an improvement, feel free to open an issue to discuss it or directly submit a pull request with your changes.
+We welcome contributions from the community to help improve PopBot. If you've got an idea for a new feature or an improvement, feel free to open an issue to discuss it or directly submit a pull request with your changes.
 
 ## Contact
 
