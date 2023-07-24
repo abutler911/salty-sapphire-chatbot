@@ -102,6 +102,17 @@ body {
   margin: 5px 0;
 }
 
+#copyright {
+  font-size: 0.5rem;
+  margin: 5px 0;
+  color: #fff;
+  text-align: center;
+  /* letter-spacing: 1px; */
+  font-weight: 500;
+
+
+}
+
 .description {
   font-size: 0.8rem;
   text-align: justify;
