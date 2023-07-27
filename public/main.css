@@ -1,6 +1,6 @@
 /* Variables */
 :root {
-  --main-font: "Poppins", sans-serif;
+  --main-font: 'Poppins', sans-serif;
   --main-color: #2b2b2b;
   --body-bg-color: #000;
   --title-color: #ffffff;
@@ -167,7 +167,7 @@ body {
 }
 
 .user-prompt::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   right: -9px;
@@ -178,7 +178,7 @@ body {
 }
 
 .bot-prompt::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: -10px;
