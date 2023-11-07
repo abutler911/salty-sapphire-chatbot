@@ -1,34 +1,48 @@
-document.getElementById('message-form').addEventListener('submit', sendMessage)
+// Cache DOM elements for better performance
+const chatHistoryElement = document.getElementById('chatHistory')
+const userInputEl = document.getElementById('userInput')
+const typingIndicatorEl = document.getElementById('typing-indicator')
+const messageFormEl = document.getElementById('message-form')
+
+// Set up the initial conversation state
 let conversation = []
 
-window.onload = function () {
-  let initialMessage = {
+// Add initial system message to the conversation when the window loads
+window.onload = () => {
+  addInitialSystemMessage()
+  fetchBotResponse()
+}
+
+// Handle the message form submission
+messageFormEl.addEventListener('submit', sendMessage)
+
+function addInitialSystemMessage() {
+  const initialMessage = {
     role: 'system',
     content: 'start',
   }
   conversation.push(initialMessage)
-  fetchBotResponse()
+  addMessage('System', 'Chat started.', 'system-prompt')
 }
 
 function sendMessage(event) {
   event.preventDefault()
-
-  const userInput = document.getElementById('userInput').value
-
-  addMessage('You', userInput, 'user-prompt')
-  conversation.push({
-    role: 'user',
-    content: userInput,
-  })
-
-  fetchBotResponse()
-  document.getElementById('chatHistory').style.display = 'block'
-  document.getElementById('userInput').value = ''
+  const userInput = userInputEl.value.trim()
+  if (userInput) {
+    addMessage('You', userInput, 'user-prompt')
+    conversation.push({
+      role: 'user',
+      content: userInput,
+    })
+    fetchBotResponse()
+    chatHistoryElement.style.display = 'block'
+    userInputEl.value = ''
+  }
 }
 
 async function fetchBotResponse() {
+  typingIndicatorEl.style.display = 'block'
   try {
-    document.getElementById('typing-indicator').style.display = 'block'
     const response = await fetch('/', {
       method: 'POST',
       headers: {
@@ -36,27 +50,31 @@ async function fetchBotResponse() {
       },
       body: JSON.stringify({ conversation }),
     })
-
-    document.getElementById('typing-indicator').style.display = 'none'
+    typingIndicatorEl.style.display = 'none'
 
     if (response.ok) {
       const { botResponse } = await response.json()
-
-      // display bot response
       addMessage('PopBot', botResponse, 'bot-prompt')
-
-      const newMessage = {
+      conversation.push({
         role: 'assistant',
         content: botResponse,
-      }
-
-      conversation.push(newMessage)
+      })
     } else {
-      const { error } = await response.json()
-      console.error('Server Error:', error)
+      // Handle non-OK responses
+      addMessage(
+        'System',
+        'An error occurred. Please try again later.',
+        'error-prompt',
+      )
     }
   } catch (error) {
-    console.error('Error:', error)
+    // Handle errors from the fetch operation itself
+    console.error('Fetch Error:', error)
+    addMessage(
+      'System',
+      'A network error occurred. Please check your connection.',
+      'error-prompt',
+    )
   }
 }
 
@@ -65,22 +83,20 @@ function addMessage(speaker, text, className) {
   speakerElement.textContent = `${speaker}: `
   speakerElement.className = 'speaker'
 
-  const message = document.createElement('p')
+  const messageElement = document.createElement('p')
+  messageElement.appendChild(speakerElement)
+  messageElement.append(text)
+  messageElement.classList.add(className)
 
-  message.appendChild(speakerElement)
-  message.append(text)
-  message.classList.add(className)
+  chatHistoryElement.appendChild(messageElement)
 
-  const hr = document.createElement('hr')
-
-  const chatHistoryElement = document.getElementById('chatHistory')
-  chatHistoryElement.appendChild(message)
-  4
-
-  setTimeout(() => scrollToBottom('chatHistory'), 0)
+  // Scroll to the bottom of the chat history after the message is added
+  scrollToBottom()
 }
 
-function scrollToBottom(id) {
-  const div = document.getElementById(id)
-  div.scrollTop = div.scrollHeight
+function scrollToBottom() {
+  // Use requestAnimationFrame for performance reasons
+  requestAnimationFrame(() => {
+    chatHistoryElement.scrollTop = chatHistoryElement.scrollHeight
+  })
 }
